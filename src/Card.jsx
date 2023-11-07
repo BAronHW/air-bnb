@@ -2,24 +2,30 @@ import stars from './images/Star1.png'
 import PropTypes from 'prop-types';
 
 export default function Card(props) {
-    const {coverImg,reviewCount,location,title,price} = props;
-    return(
-        <div className='card'>
-            {console.log(coverImg)}
-            <img src={coverImg} alt="Swimmer" onError={(e) => console.log('Image failed to load', e)} />
-            <div className='card--stats'>
-                <img src={stars} alt="stars" className='card--star'/>
-                <span className='gray'>({reviewCount}) • </span>
-                <span className='gray'>{location}</span>
+    let badgeText
+    if (props.openSpots === 0) {
+        badgeText = "SOLD OUT"
+    } else if (props.location === "Online") {
+        badgeText = "ONLINE"
+    }
+    return (
+        <div className="card">
+            {badgeText && <div className="card--badge">{badgeText}</div>}
+            <img src={`${props.coverImg}`} className="card--image" />
+            <div className="card--stats">
+                <img src={stars} className="card--star" />
+                <span>{props.stats.rating}</span>
+                <span className="gray">({props.stats.reviewCount}) • </span>
+                <span className="gray">{props.location}</span>
             </div>
-                <p className='card--title'>{title}</p>
-                <p className='card--price'><span className='bold'>From ${price} / person</span></p>
-            
+            <p className="card--title">{props.title}</p>
+            <p className="card--price"><span className="bold">From ${props.price}</span> / person</p>
         </div>
     )
 }
 
 Card.propTypes = {
+    openSpots: PropTypes.number.isRequired,
     coverImg: PropTypes.string.isRequired,
     reviewCount: PropTypes.number.isRequired,
     location: PropTypes.string.isRequired,

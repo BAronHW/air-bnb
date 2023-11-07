@@ -5,21 +5,16 @@ import Card from './Card'
 import carddata from './data'
 
 
-const data = carddata.map((info) => {
+const data = carddata.map((item) => {
   return (
     <Card
-      key={info.id} // Assign a unique key using the 'id' property from your data
-      coverImg={info.coverImg}
-      rating={info.stats.rating}
-      reviewCount={info.stats.reviewCount}
-      location={info.location}
-      title={info.title}
-      price={info.price}
+    key={item.id}
+    {...item}
     />
   );
 });
 
-const App = () => {
+export default function App(){
   return (
     <div>
       <div>
@@ -31,6 +26,4 @@ const App = () => {
         </div>
     </div>
   );
-};
-
-export default App;
+}
