@@ -9,3 +9,6 @@ Currently, two official plugins are available:
 
 This project is part of a React.js course I am following along on Scrimba so credits to them. If You would like here is a live version of my project.
 https://6549875b911c09222f6a79c5--tangerine-taiyaki-dd5fba.netlify.app/
+
+
+![image](https://github.com/BAronHW/air-bnb/assets/63551617/81ca4d1a-112e-40a8-a758-06f44d670e18)
